@@ -7,13 +7,9 @@ function getComputerChoice(){
     return str;
 
 }
-let compChoice = getComputerChoice();
-let playerChoice = prompt("Enter choice: ");
-let countPlayer = 0;
-let countComp = 0;
 
 //function takes two parameters and returns who wins
-function output(comp , player){
+function output(comp , player, countComp , countPlayer){
    
     if (comp == "rock" && player=="paper"){
         console.log("You win. Paper beats rock");
@@ -64,18 +60,24 @@ function score(comp , player ){
     console.log(`Player: ${player}`);
 }
 function game(){
-    output(compChoice , playerChoice);
-    
+}
+function playRound(){
+    let compChoice = getComputerChoice();
+    let playerChoice = prompt("Enter choice: ");
+    let countPlayer = 0;
+    let countComp = 0;
+    output(compChoice , playerChoice , countComp , countPlayer);
     score(countComp,countPlayer);
 
 
 }
-game();
+playRound();
+playRound();
 
 
 
 
-   //computer selection and player selection
-   //conditionals to see who wins
+
 //play five rounds -- game
+
 //keep score of and declare who wins
