@@ -60,8 +60,21 @@ function score(comp , player ){
     else {
         console.log("It's a tie.")
     }
+    console.log(`Computer: ${comp}`);
+    console.log(`Player: ${player}`);
 }
-output(compChoice , playerChoice);
+function game(){
+    output(compChoice , playerChoice);
+    
+    score(countComp,countPlayer);
+
+
+}
+game();
+
+
+
+
    //computer selection and player selection
    //conditionals to see who wins
 //play five rounds -- game
