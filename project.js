@@ -43,21 +43,23 @@ function output(comp , player, countComp , countPlayer){
     else {
         console.log("tie");
     }
+    console.log(`Player: ${player}`);
+    console.log(`Computer: ${comp}`);
+    return [countComp, countPlayer];
 
 
 }
 function score(comp , player ){
     if(comp > player){
-        console.log("Computer wins")
+        return 'You lose';
     }
-    else if(comp < player){
-        console.log("You win.")
+    else if(player>comp){
+        return 'You win';
     }
     else {
-        console.log("It's a tie.")
+        return "It's a tie";
     }
-    console.log(`Computer: ${comp}`);
-    console.log(`Player: ${player}`);
+  
 }
 function game(){
 }
@@ -66,13 +68,17 @@ function playRound(){
     let playerChoice = prompt("Enter choice: ");
     let countPlayer = 0;
     let countComp = 0;
-    output(compChoice , playerChoice , countComp , countPlayer);
-    score(countComp,countPlayer);
+    let [z ,w] = output(compChoice , playerChoice , countComp , countPlayer);
+    let y = score(z,w);
+    return y;
 
 
 }
-playRound();
-playRound();
+//let count= 0;
+let count = playRound();
+console.log(`Score: ${count}`);
+
+
 
 
 
