@@ -1,71 +1,102 @@
-//return random from rock paper and scissors --getcomputerchoice
+//console.log random from rock paper and scissors --getcomputerchoice
 function getComputerChoice(){
-    let array = ["rock", "paper" , "scissors"]
+    let array = ["rock", "paper" , "scissors"];
 
     let random = Math.floor(Math.random()*array.length);
     let str = array[random];
     return str;
 
 }
-let computer = getComputerChoice();
-let player = prompt("Enter choice: ").toLowerCase();
 
-//function takes two parameters and returns who wins
-function playRound(comp , player){
+
+//function takes two parameters and console.logs who wins
+function playRound(){
+    let comp = getComputerChoice();
+    let player = prompt("Enter choice: ").toLowerCase();
+    let compCount = 0;
+    let playerCount = 0;
    
     if (comp == "rock" && player=="paper"){
-        return "You win. Paper beats rock";
+        playerCount += 1;
+        console.log ("You win. Paper beats rock");
     }
     else if (comp == "paper" && player=="rock"){
-        return "You lose. Paper beats rock";
+        compCount += 1;
+        console.log ("You lose. Paper beats rock");
 
     }
     else if (comp == "paper" && player=="scissors"){
-        return "You win. Paper beats rock"
+        playerCount += 1;
+
+        console.log ("You win. Paper beats rock");
+
 
 
     }
     else if (comp == "scissors" && player=="paper"){
-        return "You lose. Paper beats rock";
+        compCount += 1;
+
+        console.log ("You lose. Paper beats rock");
+
 
 
     }
     else if (comp == "scissors" && player=="rock"){
-        return "You lose. Paper beats rock";
+        compCount += 1;
+
+        console.log ("You lose. Paper beats rock");
+
 
 
     }
     else if (comp == "rock" && player=="scissors"){
-        return "You win. Paper beats rock"
+        playerCount += 1;
+
+        console.log ("You win. Paper beats rock");
+
 
 
     }
     else {
-        return "tie";
+        console.log ("tie");
     }
-  
+    return [compCount , playerCount];
+    
 
 
 }
-console.log(playRound(computer, player));
-function game(){
-    console.log(playRound(computer, player));
-    console.log(playRound(computer, player));
-    console.log(playRound(computer, player));
+function storePlayerCount( playerCount){
+    return playerCount;
 
+}
+function storeComCount(compCount){
+    return compCount;
+}
+let i = 0;
+
+function game(){
+    for(let i = 0; i < 3 ; i++){
+        
+        let [x,y] = playRound();
+        
+        
+        console.log(score(x , y));
+
+
+
+    }  
 }
 
 function score(comp , player ){
     if(comp > player){
-        return 'You lose';
+        console.log ('You lose');
     }
     else if(player>comp){
-        return 'You win';
+        console.log ('You win');
     }
     else {
-        return "It's a tie";
+        console.log ("It's a tie");
     }
-  
 }
 
 
